@@ -1,0 +1,43 @@
+<div class="container body">
+    <div class="row mt-4">
+        <div class="col-sm-6 offset-md-3">
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" id="username" 
+                        aria-describedby="usernameHelp" placeholder="username"
+                        [ngClass]="{'is-invalid': loginForm.get('username').touched && loginForm.get('username').invalid}">
+                    
+                    <span class="invalid-feedback">Username can't be blank.</span>
+                    <small id="usernameHelp" class="form-text text-muted"></small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="password" 
+                        aria-describedby="passHelp" placeholder="password"
+                        [ngClass]="{'is-invalid': loginForm.get('password').touched && loginForm.get('password').invalid}">
+                    
+                    <small id="passHelp" class="form-text text-muted"></small>
+                    <span class="invalid-feedback">
+                        <span *ngIf="loginForm.get('password').hasError('required')">Password can't be blank.</span>
+                        <span *ngIf="loginForm.get('password').hasError('minlength')">Password must contain minimum 5 characters</span>
+                    </span>
+                </div>
+    
+                <div class="form-group d-flex justify-content-between">
+                    <button type="button" class="btn btn-dark mr-2 rounded-0" [disabled]="loginForm.invalid" (click)="login()">Log In</button>
+                    <strong (click)="moveToRegister()" class="newUser text-success">Create new user</strong>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row mt-2">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger" *ngIf="serverErrorMessages">
+                {{serverErrorMessages}}
+            </div>
+        </div>    
+    </div>    
+</div>

@@ -1,0 +1,93 @@
+<div class="container row-form">
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="registerForm"> 
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text"  formControlName="name" class="form-control" id="name" 
+                    aria-describedby="nameHelp" placeholder="name"
+                    [ngClass]="{'is-invalid': registerForm.get('name').touched && registerForm.get('name').invalid}">
+                    
+                    <span class="invalid-feedback">Name can't be blank.</span>
+                    <small id="nameHelp" class="form-text text-muted"></small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="rollno">Roll No</label>
+                    <input type="number" formControlName="rollno" class="form-control" id="rollno" 
+                    aria-describedby="rollnoHelp" placeholder="roll No"
+                    [ngClass]="{'is-invalid': registerForm.get('rollno').touched && registerForm.get('rollno').invalid}">
+                    
+                    <span class="invalid-feedback">Roll No can't be blank.</span>
+                    <small id="rollnoHelp" class="form-text text-muted"></small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" formControlName="department" class="form-control" id="department" 
+                    aria-describedby="departmentHelp" placeholder="department"
+                    [ngClass]="{'is-invalid': registerForm.get('department').touched && registerForm.get('department').invalid}">
+                    
+                    <small id="departmentHelp" class="form-text text-muted"></small>
+                    <span class="invalid-feedback">Department can't be blank.</span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" id="username" 
+                    aria-describedby="usernameHelp" placeholder="username"
+                    [ngClass]="{'is-invalid': registerForm.get('username').touched && registerForm.get('username').invalid}">
+                    
+                    <span class="invalid-feedback">Username can't be blank.</span>
+                    <small id="usernameHelp" class="form-text text-muted"></small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="password" 
+                    aria-describedby="passHelp" placeholder="password"
+                    [ngClass]="{'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}">
+                    
+                    <small id="passHelp" class="form-text text-muted"></small>
+    
+                    <span class="invalid-feedback">
+                        <span *ngIf="registerForm.get('password').hasError('required')">Password can't be blank.</span>
+                        <span *ngIf="registerForm.get('password').hasError('minlength')">Password must contain minimum 5 characters</span>
+                    </span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" formControlName="cpassword" class="form-control" id="cpassword" 
+                    aria-describedby="cpassHelp" placeholder="cpassword"
+                    [ngClass]="{'is-invalid': registerForm.get('cpassword').touched && registerForm.get('cpassword').invalid}">
+                    
+                    <small id="cpassHelp" class="form-text text-muted"></small>
+                    <span class="invalid-feedback">Passwords must match.</span>
+                </div>
+    
+                <div class="form-group d-flex justify-content-between">
+                    <button type="button" class="btn btn-dark mr-2 rounded-0" [disabled]="registerForm.invalid" (click)="register()">Register</button>
+                    <strong (click)="moveToLogin()" class="newUser text-success mr-4">If already exist?</strong>
+                </div>
+            </form>
+        </div>    
+    </div>
+    
+    <div class="row mt-2">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-success" *ngIf="showSucessMessage">
+                Saved successfully!
+            </div>
+        </div>    
+    </div>
+    
+    <div class="row mt-2">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger" *ngIf="serverErrorMessages">
+                {{serverErrorMessages}}
+            </div>
+        </div>    
+    </div>
+</div>
+

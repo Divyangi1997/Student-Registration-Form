@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success d-flex justify-content-between mt-2">
+            <strong> Hello, 
+                <span class="text-capitalize">{{userDetails.name}}</span>
+            </strong>
+            <div>
+                <a class="btn btn-dark btn-sm rounded-0 mr-4" role="button" (click)="moveToProfile()">View Profile</a>
+                <a class="btn btn-dark btn-sm rounded-0" role="button" (click)="logout()">Log Out</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container body p-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form class="form-inline ml-4">
+                <label for="rollno">Roll No</label> 
+                <input type="number" class="ml-2 form-control" id="rollno" placeholder="Enter Roll No" name="rollno" id="rollno">
+                <button type="submit" class="btn btn-primary ml-2 btn-sm">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="container mt-4 ml-0">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Department</th>
+                            <th>Roll No</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>{{userDetails.rollno}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+  

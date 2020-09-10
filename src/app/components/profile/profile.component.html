@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success d-flex justify-content-between mt-2">
+            <strong> Hello, 
+                <span class="text-capitalize">{{userDetails.name}}</span>
+            </strong>
+            <div>
+                <a class="btn btn-dark btn-sm rounded-0 mr-4" role="button" (click)="moveToDashboard()">Back</a>
+                <a class="btn btn-dark btn-sm rounded-0" role="button" (click)="logout()">Log Out</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row row-form p-4">
+        <div class="col-md-6 offset-md-3">
+            <dl class="row">
+                <dt class="col-sm-3">Name</dt>
+                <span class="col-sm-2"> - </span>
+                <dd class="col-sm-7 text-capitalize">{{userDetails.name}}</dd>
+                <dt class="col-sm-3">Roll No</dt>
+                <span class="col-sm-2"> - </span>
+                <dd class="col-sm-7">{{userDetails.rollno}}</dd>
+                <dt class="col-sm-3">Username</dt>
+                <span class="col-sm-2"> - </span>
+                <dd class="col-sm-7">{{userDetails.username}}</dd>
+            </dl>             
+        </div>
+    </div>
+</div>
